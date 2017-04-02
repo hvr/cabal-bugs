@@ -1,0 +1,48 @@
+See https://github.com/haskell/cabal/issues/4432
+
+How to reproduce with Cabal HEAD or 2.0 (as of 2017-04-01):
+
+rm -rf dist/ dist-newstyle/ ~/.cabal/store/ghc-8.0.2/
+
+cabal new-build
+
+Output:
+
+$ cabal new-build -j1
+Resolving dependencies...
+In order, the following will be built (use -v for more details):
+ - Cabal-1.25.0.0 (lib) (first run)
+ - base-orphans-0.5.4 (lib) (requires build)
+ - transformers-compat-0.5.1.4 (lib) (requires build)
+ - cabal-doctest-1 (lib) (requires build)
+ - tagged-0.8.5 (lib) (requires build)
+ - distributive-0.5.2 (lib:distributive) (requires build)
+ - bug-0 (lib) (first run)
+Configuring library for Cabal-1.25.0.0..
+Preprocessing library for Cabal-1.25.0.0..
+Building library for Cabal-1.25.0.0..
+Configuring library for base-orphans-0.5.4..
+Preprocessing library for base-orphans-0.5.4..
+Building library for base-orphans-0.5.4..
+[1 of 2] Compiling Data.Orphans.Prelude ( src/Data/Orphans/Prelude.hs, dist/build/Data/Orphans/Prelude.o )
+[2 of 2] Compiling Data.Orphans     ( src/Data/Orphans.hs, dist/build/Data/Orphans.o )
+Installing library in /home/hvr/.cabal/store/ghc-8.0.2/base-orphans-0.5.4-982467a5ac7bbf2cffaf0aa75d70cd89144cf8ad3d49ec14dcbc91afa87fc464/lib
+Configuring library for transformers-compat-0.5.1.4..
+Preprocessing library for transformers-compat-0.5.1.4..
+Building library for transformers-compat-0.5.1.4..
+[1 of 2] Compiling Paths_transformers_compat ( dist/build/autogen/Paths_transformers_compat.hs, dist/build/Paths_transformers_compat.o )
+[2 of 2] Compiling Control.Monad.Trans.Instances ( src/Control/Monad/Trans/Instances.hs, dist/build/Control/Monad/Trans/Instances.o )
+Installing library in /home/hvr/.cabal/store/ghc-8.0.2/transformers-compat-0.5.1.4-8e1d956321b8695a2a214c4cc483605a5e92f9d86a100c8e03261cf4ec11e097/lib
+Configuring library for cabal-doctest-1..
+Configuring library for tagged-0.8.5..
+Preprocessing library for tagged-0.8.5..
+Building library for tagged-0.8.5..
+[1 of 2] Compiling Data.Tagged      ( src/Data/Tagged.hs, dist/build/Data/Tagged.o )
+[2 of 2] Compiling Data.Proxy.TH    ( src/Data/Proxy/TH.hs, dist/build/Data/Proxy/TH.o )
+Installing library in /home/hvr/.cabal/store/ghc-8.0.2/tagged-0.8.5-609d13fa0a84ebb0b1b526949ac135749ded6381301a67420b356ef9adb9a5c7/lib
+<command line>: cannot satisfy -package-id cabal-doctest-1-inplace
+    (use -v for more information)
+cabal: Failed to build distributive-0.5.2 (which is required by bug-0). The
+failure occurred during the configure step.
+
+
