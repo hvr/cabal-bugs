@@ -1,0 +1,6 @@
+with-compiler: ghc-8.0.2
+packages:.
+packages:dummy-Cabal
+
+tests: false
+benchmarks: false
