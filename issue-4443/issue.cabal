@@ -1,0 +1,13 @@
+name:                issue
+version:             4443
+homepage:            https://github.com/haskell/cabal/issues/4443
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  build-depends:       base
+  exposed-modules:     M
+  default-language:    Haskell2010
+
+  default-language: Haskell2010
+  default-extensions: NondecreasingIndentation
