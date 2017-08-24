@@ -1,0 +1,26 @@
+cabal-version:1.12
+
+name: bug
+version: 0
+build-type: Simple
+
+library
+  default-language: Haskell2010
+  other-modules: LibBug
+  build-depends: base
+  c-sources: cbits/bug.c
+
+executable bug-exe1
+  default-language: Haskell2010
+  main-is: Main.hs
+  build-depends: base
+  other-modules: LibBug
+  c-sources: cbits/bug.c
+
+test-suite bug-test1
+  default-language: Haskell2010
+  main-is: Main.hs
+  type: exitcode-stdio-1.0
+  build-depends: base
+  other-modules: LibBug
+  c-sources: cbits/bug.c

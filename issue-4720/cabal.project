@@ -1,0 +1,8 @@
+packages: ./bug
+
+package bug
+  -- orthogonal issue: base-dir ought to be cabal.project location,
+  -- or there should be a way to refer to the project-folder, e.g.
+  -- extra-include-dirs: $project_top/extra_inc
+
+  extra-include-dirs: ../extra-inc
