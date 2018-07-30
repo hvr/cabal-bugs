@@ -1,0 +1,7 @@
+packages: pkg-b
+
+source-repository-package
+    type: git
+    location: https://github.com/hvr/cabal-bugs
+    tag: b23f3277270b2066163fabde41a08be1261bf9eb
+    subdir: issue-5469/pkg-a
